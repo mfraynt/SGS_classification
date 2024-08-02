@@ -10,7 +10,7 @@ from tkinter import filedialog as fd
 def get_rwb_list():
     curr_date = datetime.now().strftime("%Y-%m-%d")
     beg_date = datetime(datetime.now().year, 1,1).date().strftime("%Y-%m-%d")
-    url = f"http://adminmachine5:8080/ords/hr/rest-nds/CHINA_MAILING/{beg_date}/{curr_date}"
+    url = f"http://#######:8080/ords/hr/rest-nds/CHINA_MAILING/{beg_date}/{curr_date}" #the server name should be corrected
     raw = requests.get(url)
     rwb=pd.DataFrame(json.loads(raw.content.decode())['items'])
     rwb.iloc[:,0]=pd.to_datetime(rwb.iloc[:,0])
